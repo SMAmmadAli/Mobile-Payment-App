@@ -11,7 +11,7 @@ class LoginPage extends StatelessWidget {
         children: [
           Container(
             width: MediaQuery.of(context).size.width * 1,
-            height: MediaQuery.of(context).size.height * 0.75,
+            height: MediaQuery.of(context).size.height * 0.68,
             decoration: const BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.fill,
@@ -67,6 +67,71 @@ class LoginPage extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(
+            height: 10,
+          ),
+          Container(
+            width: MediaQuery.of(context).size.width * 0.8,
+            height: MediaQuery.of(context).size.height * 0.08,
+            decoration: BoxDecoration(
+                color: Color(0xffEDEFFF),
+                borderRadius: BorderRadius.circular(30)),
+            child: const TextField(
+              decoration: InputDecoration(
+                  contentPadding: EdgeInsets.fromLTRB(20, 10, 10, 10),
+                  hintText: "Enter Mobile Number",
+                  hintStyle: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xffb858891)),
+                  border: InputBorder.none,
+                  labelText: "+92",
+                  labelStyle: TextStyle(
+                      color: Color(0xff4D5DFA),
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700)),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          InkWell(
+            onTap: () {},
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: MediaQuery.of(context).size.height * 0.08,
+              decoration: BoxDecoration(
+                  color: const Color(0xff4D5DFA),
+                  borderRadius: BorderRadius.circular(30)),
+              child: const Center(
+                child: Center(
+                  child: Text(
+                    'Verify',
+                    style: TextStyle(
+                        color: Color(0xffEDEFFF),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          const Text(
+            'Your personal details are safe with us',
+            style: TextStyle(
+                color: Color(0xff7C82BA),
+                fontSize: 11,
+                fontWeight: FontWeight.w400),
+          ),
+          const SizedBox(height: 2),
+          const Text(
+            'Read our Privacy Policy and Terms and Conditions',
+            style: TextStyle(
+                color: Color(0xff7C82BA),
+                fontSize: 11,
+                fontWeight: FontWeight.w400),
+          )
         ],
       ),
     );

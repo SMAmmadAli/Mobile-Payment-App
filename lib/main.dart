@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         color: Colors.white,
       ))),
       home: Scaffold(
-        body: SplashScreen(),
+        body: LoginPage(),
       ),
     );
   }

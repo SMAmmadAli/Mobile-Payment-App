@@ -68,6 +68,14 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
           ),
+          const SizedBox(
+            height: 5,
+          ),
+          const Text(
+            'Your Perfect Payment Partner',
+            style: TextStyle(
+                color: Colors.white, fontSize: 14, fontWeight: FontWeight.w400),
+          )
         ],
       ),
     );
