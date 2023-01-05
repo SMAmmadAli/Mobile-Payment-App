@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../utils/color_constant.dart';
-
 class ButtomText extends StatelessWidget {
   final double fontSize;
   final Color color;

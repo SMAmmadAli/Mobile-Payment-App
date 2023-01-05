@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_payment_app/utils/color_constant.dart';
 
 class MyTextField extends StatelessWidget {
-  final String hintText;
-  final String labelText;
+  final String? hintText;
+  final String? labelText;
   final Color color;
   final Color bgcolor;
 
   const MyTextField(
       {super.key,
-      required this.hintText,
+      this.hintText,
       required this.color,
       required this.bgcolor,
-      required this.labelText});
+      this.labelText});
 
   @override
   Widget build(BuildContext context) {
@@ -24,10 +25,10 @@ class MyTextField extends StatelessWidget {
         decoration: InputDecoration(
             contentPadding: EdgeInsets.fromLTRB(20, 10, 10, 10),
             hintText: hintText,
-            hintStyle: const TextStyle(
+            hintStyle: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w700,
-                color: Color(0xffb858891)),
+                color: MyColors.grey),
             border: InputBorder.none,
             labelText: labelText,
             labelStyle: TextStyle(

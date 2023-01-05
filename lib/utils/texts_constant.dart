@@ -10,4 +10,5 @@ class MyTexts {
       'Read our Privacy Policy and Terms and Conditions';
   static String splastText = 'Your Perfect Payment Partner';
   static String splastText2 = 'INSTANT PAY';
+  static String Appbartext = 'Search Users,ID’s etc';
 }

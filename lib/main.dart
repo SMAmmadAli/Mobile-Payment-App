@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_payment_app/page/home_page.dart';
-import 'package:mobile_payment_app/page/loginpage.dart';
-import 'package:mobile_payment_app/page/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,8 +19,8 @@ class MyApp extends StatelessWidget {
         fontWeight: FontWeight.w700,
         color: Colors.white,
       ))),
-      home: Scaffold(
-        body: SplashScreen(),
+      home: const Scaffold(
+        body: HomePage(),
       ),
     );
   }
