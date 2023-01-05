@@ -2,6 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:mobile_payment_app/page/loginpage.dart';
+import 'package:mobile_payment_app/utils/color_constant.dart';
+import 'package:mobile_payment_app/utils/image_constant.dart';
+import 'package:mobile_payment_app/utils/texts_constant.dart';
+import 'package:mobile_payment_app/widgets/bottom_text.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -26,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff111111),
+      backgroundColor: MyColors.bgcolor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -34,9 +38,9 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Container(
             width: 78,
             height: 78,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('asset/image/splash icon.png'),
+                image: AssetImage(MyImages.spImage),
               ),
             ),
             child: Stack(
@@ -47,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Container(
                     width: 30,
                     height: 40,
-                    child: Image.asset('asset/image/splash icon2.png'),
+                    child: Image.asset(MyImages.spImage2),
                   ),
                 )
               ],
@@ -59,11 +63,10 @@ class _SplashScreenState extends State<SplashScreen> {
           Container(
             width: 180,
             decoration: BoxDecoration(
-                color: Color(0xff4D5DFA),
-                borderRadius: BorderRadius.circular(8)),
+                color: MyColors.blue, borderRadius: BorderRadius.circular(8)),
             child: Center(
               child: Text(
-                'INSTANT PAY',
+                MyTexts.splastText2,
                 style: Theme.of(context).textTheme.headline1,
               ),
             ),
@@ -71,10 +74,10 @@ class _SplashScreenState extends State<SplashScreen> {
           const SizedBox(
             height: 5,
           ),
-          const Text(
-            'Your Perfect Payment Partner',
-            style: TextStyle(
-                color: Colors.white, fontSize: 14, fontWeight: FontWeight.w400),
+          ButtomText(
+            text: MyTexts.splastText,
+            fontSize: 14,
+            color: MyColors.white,
           )
         ],
       ),

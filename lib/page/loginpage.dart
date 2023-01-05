@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_payment_app/page/home_page.dart';
+import 'package:mobile_payment_app/utils/color_constant.dart';
+import 'package:mobile_payment_app/utils/image_constant.dart';
+import 'package:mobile_payment_app/utils/texts_constant.dart';
+import 'package:mobile_payment_app/widgets/bottom_text.dart';
+import 'package:mobile_payment_app/widgets/login_button.dart';
+import 'package:mobile_payment_app/widgets/text_field.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -12,10 +19,9 @@ class LoginPage extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width * 1,
             height: MediaQuery.of(context).size.height * 0.68,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
                 image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('asset/image/login.png'))),
+                    fit: BoxFit.fill, image: AssetImage(MyImages.loginPg1))),
             child: Stack(
               children: [
                 Positioned(
@@ -25,12 +31,12 @@ class LoginPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'LOGIN WITH YOUR',
+                          MyTexts.heading1,
                           style: Theme.of(context).textTheme.headline1,
                         ),
-                        Text('MOBILE PHONE',
+                        Text(MyTexts.heading2,
                             style: Theme.of(context).textTheme.headline1),
-                        Text('NUMBER',
+                        Text(MyTexts.heading3,
                             style: Theme.of(context).textTheme.headline1),
                       ],
                     )),
@@ -40,9 +46,9 @@ class LoginPage extends StatelessWidget {
                     child: Container(
                       width: 200,
                       height: 135,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage('asset/image/login2.png'))),
+                              image: AssetImage(MyImages.loginPg2))),
                     )),
                 Positioned(
                     top: 160,
@@ -50,9 +56,9 @@ class LoginPage extends StatelessWidget {
                     child: Container(
                       width: 80,
                       height: 140,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage('asset/image/1.png'))),
+                              image: AssetImage(MyImages.loginPg3))),
                     )),
                 Positioned(
                     top: 210,
@@ -60,9 +66,9 @@ class LoginPage extends StatelessWidget {
                     child: Container(
                       width: 84,
                       height: 120,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage('asset/image/2.png'))),
+                              image: AssetImage(MyImages.loginPg4))),
                     )),
               ],
             ),
@@ -70,68 +76,36 @@ class LoginPage extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          Container(
-            width: MediaQuery.of(context).size.width * 0.8,
-            height: MediaQuery.of(context).size.height * 0.08,
-            decoration: BoxDecoration(
-                color: Color(0xffEDEFFF),
-                borderRadius: BorderRadius.circular(30)),
-            child: const TextField(
-              decoration: InputDecoration(
-                  contentPadding: EdgeInsets.fromLTRB(20, 10, 10, 10),
-                  hintText: "Enter Mobile Number",
-                  hintStyle: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w700,
-                      color: Color(0xffb858891)),
-                  border: InputBorder.none,
-                  labelText: "+92",
-                  labelStyle: TextStyle(
-                      color: Color(0xff4D5DFA),
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700)),
-            ),
-          ),
+          MyTextField(
+              hintText: MyTexts.hintText,
+              color: MyColors.blue,
+              bgcolor: MyColors.white,
+              labelText: MyTexts.labelText),
           const SizedBox(
             height: 10,
           ),
           InkWell(
-            onTap: () {},
-            child: Container(
-              width: MediaQuery.of(context).size.width * 0.8,
-              height: MediaQuery.of(context).size.height * 0.08,
-              decoration: BoxDecoration(
-                  color: const Color(0xff4D5DFA),
-                  borderRadius: BorderRadius.circular(30)),
-              child: const Center(
-                child: Center(
-                  child: Text(
-                    'Verify',
-                    style: TextStyle(
-                        color: Color(0xffEDEFFF),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700),
-                  ),
-                ),
-              ),
+            onTap: () {
+              Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
+            },
+            child: LoginButton(
+              text: MyTexts.loginText,
+              bgcolor: MyColors.blue,
             ),
           ),
           const SizedBox(height: 10),
-          const Text(
-            'Your personal details are safe with us',
-            style: TextStyle(
-                color: Color(0xff7C82BA),
-                fontSize: 11,
-                fontWeight: FontWeight.w400),
+          ButtomText(
+            text: MyTexts.bottontext1,
+            fontSize: 11,
+            color: MyColors.lightblue,
           ),
           const SizedBox(height: 2),
-          const Text(
-            'Read our Privacy Policy and Terms and Conditions',
-            style: TextStyle(
-                color: Color(0xff7C82BA),
-                fontSize: 11,
-                fontWeight: FontWeight.w400),
-          )
+          ButtomText(
+            text: MyTexts.bottontext2,
+            fontSize: 11,
+            color: MyColors.lightblue,
+          ),
         ],
       ),
     );
