@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_payment_app/utils/color_constant.dart';
-import 'package:mobile_payment_app/utils/texts_constant.dart';
-import 'package:mobile_payment_app/widgets/HomePage%20Widgets/container1.dart';
-import 'package:mobile_payment_app/widgets/HomePage%20Widgets/container2.dart';
-import 'package:mobile_payment_app/widgets/HomePage%20Widgets/container3.dart';
-import 'package:mobile_payment_app/widgets/HomePage%20Widgets/text1.dart';
+
+import '../utils/color_constant.dart';
+import '../widgets/HomePage Widgets/container1.dart';
+import '../widgets/HomePage Widgets/container2.dart';
+import '../widgets/HomePage Widgets/container3.dart';
+import '../widgets/HomePage Widgets/text1.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,57 +14,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: MyColors.bgcolor,
-        appBar: AppBar(
-          backgroundColor: MyColors.bgcolor,
-          leading: const Padding(
-            padding: EdgeInsets.only(left: 10.0),
-            child: CircleAvatar(
-              radius: 25,
-              backgroundImage: AssetImage('asset/image/p1.png'),
-            ),
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(left: 5, right: 15),
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.6,
-                height: 20,
-                decoration: BoxDecoration(
-                    color: MyColors.lightBlack,
-                    borderRadius: BorderRadius.circular(30)),
-                child: TextField(
-                  decoration: InputDecoration(
-                    suffixIcon: Icon(
-                      CupertinoIcons.search,
-                      color: MyColors.grey,
-                      size: 25,
-                    ),
-                    contentPadding: const EdgeInsets.fromLTRB(20, 10, 10, 10),
-                    hintText: MyTexts.Appbartext,
-                    hintStyle: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w700,
-                        color: MyColors.grey),
-                    border: InputBorder.none,
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              width: 40,
-              height: 40,
-              child: CircleAvatar(
-                radius: 30,
-                backgroundColor: MyColors.lightBlack,
-                child: Icon(
-                  CupertinoIcons.bell,
-                  size: 25,
-                  color: MyColors.grey,
-                ),
-              ),
-            ),
-          ],
-        ),
         body: SingleChildScrollView(
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -74,13 +23,13 @@ class HomePage extends StatelessWidget {
               child: Row(
                 children: [
                   MyContainer1(
-                      color: Colors.deepPurple.shade300,
+                      color: MyColors.purple,
                       icon: Icon(
                         Icons.qr_code,
                         color: MyColors.white,
                         size: 25,
                       )),
-                  MyContainer2(color: MyColors.purple, text: 'Scan QR Code'),
+                  MyContainer2(color: MyColors.purple2, text: 'Scan QR Code'),
                   const SizedBox(
                     width: 4,
                   ),

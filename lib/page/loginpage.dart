@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_payment_app/page/home_page.dart';
+import 'package:mobile_payment_app/page/first_Page.dart';
 import 'package:mobile_payment_app/utils/color_constant.dart';
 import 'package:mobile_payment_app/utils/image_constant.dart';
 import 'package:mobile_payment_app/utils/texts_constant.dart';
@@ -86,8 +86,8 @@ class LoginPage extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => HomePage()));
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => FirstPage()));
             },
             child: LoginButton(
               text: MyTexts.loginText,

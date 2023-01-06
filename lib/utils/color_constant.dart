@@ -8,7 +8,7 @@ class MyColors {
   static Color grey = const Color(0xffb858891);
   static Color lightBlack = const Color(0xff343645);
   static Color lightpurple1 = const Color(0xff0054D2);
-  static Color purple = const Color(0xff5B2E62);
+  static Color purple = const Color(0xff442A65);
   static Color lightpurple = const Color.fromRGBO(0, 84, 210, 0.15);
   static Color lightgreen = const Color(0xff2E624C);
   static Color brown = const Color(0xff622E3A);

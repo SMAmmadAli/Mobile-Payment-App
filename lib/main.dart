@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_payment_app/page/home_page.dart';
+import 'package:mobile_payment_app/page/first_Page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         color: Colors.white,
       ))),
       home: const Scaffold(
-        body: HomePage(),
+        body: FirstPage(),
       ),
     );
   }
