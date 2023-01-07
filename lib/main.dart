@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_payment_app/page/first_Page.dart';
+import 'package:mobile_payment_app/page/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         color: Colors.white,
       ))),
       home: const Scaffold(
-        body: FirstPage(),
+        body: SplashScreen(),
       ),
     );
   }

@@ -31,8 +31,14 @@ class MyListTile extends StatelessWidget {
                   image: DecorationImage(
                       image: AssetImage('asset/image/offer.png'))),
             ),
-            title: Text(title),
-            subtitle: Text(subtitle)),
+            title: Text(
+              title,
+              style: TextStyle(color: MyColors.white),
+            ),
+            subtitle: Text(
+              subtitle,
+              style: TextStyle(color: MyColors.white),
+            )),
       ),
     );
   }

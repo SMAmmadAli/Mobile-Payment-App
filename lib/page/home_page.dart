@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_payment_app/page/scan_page.dart';
 
 import '../utils/color_constant.dart';
 import '../widgets/HomePage Widgets/container1.dart';
@@ -13,6 +14,27 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: InkWell(
+          onTap: () => Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => MyScanPage())),
+          child: Container(
+            width: 120,
+            height: 30,
+            child: Center(
+              child: Text(
+                'Recieve Money',
+                style: TextStyle(
+                    color: MyColors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600),
+              ),
+            ),
+            decoration: BoxDecoration(
+              color: MyColors.lightBlack,
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
+        ),
         backgroundColor: MyColors.bgcolor,
         body: SingleChildScrollView(
           child:
@@ -215,7 +237,7 @@ class HomePage extends StatelessWidget {
             ),
             const MyBodyText(text: "Recent Transactions"),
             const SizedBox(
-              height: 5,
+              height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

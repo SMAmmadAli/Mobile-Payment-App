@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_payment_app/page/balance.dart';
 import 'package:mobile_payment_app/page/home_page.dart';
 import 'package:mobile_payment_app/page/offer_page.dart';
+import 'package:mobile_payment_app/page/reward_page.dart';
 import 'package:mobile_payment_app/utils/color_constant.dart';
 import 'package:mobile_payment_app/utils/texts_constant.dart';
 import 'package:mobile_payment_app/widgets/HomePage%20Widgets/container1.dart';
@@ -109,7 +110,7 @@ class FirstPage extends StatelessWidget {
           HomePage(),
           BalancePage(),
           OfferPage(),
-          Text("Tab4"),
+          RewardsPage(),
         ]),
       ),
     );
