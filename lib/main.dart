@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_payment_app/page/notification_page.dart';
 import 'package:mobile_payment_app/page/splash_screen.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         color: Colors.white,
       ))),
       home: const Scaffold(
-        body: SplashScreen(),
+        body: NotificationPage(),
       ),
     );
   }
