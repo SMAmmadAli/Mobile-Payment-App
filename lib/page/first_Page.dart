@@ -8,10 +8,6 @@ import 'package:mobile_payment_app/page/profile_page.dart';
 import 'package:mobile_payment_app/page/reward_page.dart';
 import 'package:mobile_payment_app/utils/color_constant.dart';
 import 'package:mobile_payment_app/utils/texts_constant.dart';
-import 'package:mobile_payment_app/widgets/HomePage%20Widgets/container1.dart';
-import 'package:mobile_payment_app/widgets/HomePage%20Widgets/container2.dart';
-import 'package:mobile_payment_app/widgets/HomePage%20Widgets/container3.dart';
-import 'package:mobile_payment_app/widgets/HomePage%20Widgets/text1.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
