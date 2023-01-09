@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_payment_app/page/balance.dart';
 import 'package:mobile_payment_app/page/home_page.dart';
+import 'package:mobile_payment_app/page/notification_page.dart';
 import 'package:mobile_payment_app/page/offer_page.dart';
+import 'package:mobile_payment_app/page/profile_page.dart';
 import 'package:mobile_payment_app/page/reward_page.dart';
 import 'package:mobile_payment_app/utils/color_constant.dart';
 import 'package:mobile_payment_app/utils/texts_constant.dart';
@@ -22,11 +24,15 @@ class FirstPage extends StatelessWidget {
         backgroundColor: MyColors.bgcolor,
         appBar: AppBar(
           backgroundColor: MyColors.bgcolor,
-          leading: const Padding(
-            padding: EdgeInsets.only(left: 10.0),
-            child: CircleAvatar(
-              radius: 25,
-              backgroundImage: AssetImage('asset/image/p1.png'),
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 10.0),
+            child: GestureDetector(
+              onTap: () => Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => ProfilePage())),
+              child: const CircleAvatar(
+                radius: 25,
+                backgroundImage: AssetImage('asset/image/p1.png'),
+              ),
             ),
           ),
           title: Padding(
@@ -56,16 +62,19 @@ class FirstPage extends StatelessWidget {
             ),
           ),
           actions: [
-            Container(
-              width: 40,
-              height: 40,
-              child: CircleAvatar(
-                radius: 30,
-                backgroundColor: MyColors.lightBlack,
-                child: Icon(
-                  CupertinoIcons.bell,
-                  size: 25,
-                  color: MyColors.grey,
+            GestureDetector(
+              onTap: () => Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => NotificationPage())),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CircleAvatar(
+                  radius: 25,
+                  backgroundColor: MyColors.lightBlack,
+                  child: Icon(
+                    CupertinoIcons.bell,
+                    size: 25,
+                    color: MyColors.grey,
+                  ),
                 ),
               ),
             ),
