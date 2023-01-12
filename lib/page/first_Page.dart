@@ -67,7 +67,7 @@ class FirstPage extends StatelessWidget {
                   radius: 25,
                   backgroundColor: MyColors.lightBlack,
                   child: Icon(
-                    CupertinoIcons.bell,
+                    CupertinoIcons.bell_solid,
                     size: 25,
                     color: MyColors.grey,
                   ),
