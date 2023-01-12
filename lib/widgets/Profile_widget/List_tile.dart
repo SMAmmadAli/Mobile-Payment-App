@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../utils/color_constant.dart';
 
 class ProfileListTile extends StatelessWidget {

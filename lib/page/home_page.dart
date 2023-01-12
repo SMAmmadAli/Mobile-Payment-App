@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: InkWell(
-          onTap: () => Navigator.pushReplacement(
+          onTap: () => Navigator.push(
               context, MaterialPageRoute(builder: (context) => MyScanPage())),
           child: Container(
             width: 120,

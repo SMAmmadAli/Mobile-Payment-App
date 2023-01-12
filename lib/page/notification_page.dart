@@ -10,9 +10,20 @@ class NotificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: MyColors.bgcolor,
+          elevation: 0,
+          leading: IconButton(
+              onPressed: () => Navigator.pop(context),
+              icon: Icon(
+                Icons.arrow_back,
+                color: MyColors.grey,
+                size: 25,
+              )),
+        ),
         backgroundColor: MyColors.bgcolor,
         body: Padding(
-          padding: const EdgeInsets.only(top: 20, left: 15),
+          padding: const EdgeInsets.only(top: 20, left: 20),
           child: Container(
             width: MediaQuery.of(context).size.width * 0.85,
             height: 380,

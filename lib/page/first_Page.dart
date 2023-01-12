@@ -23,7 +23,7 @@ class FirstPage extends StatelessWidget {
           leading: Padding(
             padding: const EdgeInsets.only(left: 10.0),
             child: GestureDetector(
-              onTap: () => Navigator.pushReplacement(context,
+              onTap: () => Navigator.push(context,
                   MaterialPageRoute(builder: (context) => ProfilePage())),
               child: const CircleAvatar(
                 radius: 25,
@@ -59,7 +59,7 @@ class FirstPage extends StatelessWidget {
           ),
           actions: [
             GestureDetector(
-              onTap: () => Navigator.pushReplacement(context,
+              onTap: () => Navigator.push(context,
                   MaterialPageRoute(builder: (context) => NotificationPage())),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
