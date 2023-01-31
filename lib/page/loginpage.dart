@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_payment_app/page/first_Page.dart';
+import 'package:mobile_payment_app/page/home_page.dart';
+import 'package:mobile_payment_app/page/signup_page.dart';
 import 'package:mobile_payment_app/utils/color_constant.dart';
 import 'package:mobile_payment_app/utils/image_constant.dart';
 import 'package:mobile_payment_app/utils/texts_constant.dart';
@@ -8,7 +11,28 @@ import 'package:mobile_payment_app/widgets/login_button.dart';
 import 'package:mobile_payment_app/widgets/text_field.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
+  TextEditingController enterEmail = TextEditingController();
+  TextEditingController enterPassword = TextEditingController();
+
+  login(context) async {
+    try {
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: enterEmail.text,
+        password: enterPassword.text,
+      );
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => HomePage()));
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,18 +104,64 @@ class LoginPage extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            MyTextField(
-                hintText: MyTexts.hintText,
-                color: MyColors.blue,
-                bgcolor: MyColors.white,
-                labelText: MyTexts.labelText),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: MediaQuery.of(context).size.height * 0.08,
+              decoration: BoxDecoration(
+                  color: MyColors.bgcolor,
+                  borderRadius: BorderRadius.circular(30)),
+              child: TextField(
+                controller: enterEmail,
+                decoration: InputDecoration(
+                    contentPadding: EdgeInsets.fromLTRB(20, 10, 10, 10),
+                    hintText: MyTexts.hintText,
+                    hintStyle: TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w700,
+                        color: MyColors.grey),
+                    border: InputBorder.none,
+                    labelText: MyTexts.labelText,
+                    labelStyle: TextStyle(
+                        color: MyColors.blue,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700)),
+              ),
+            ),
+            Container(
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: MediaQuery.of(context).size.height * 0.08,
+                decoration: BoxDecoration(
+                    color: MyColors.bgcolor,
+                    borderRadius: BorderRadius.circular(30)),
+                child: TextField(
+                  obscureText: true,
+                  controller: enterPassword,
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(20, 10, 10, 10),
+                      hintText: MyTexts.hintText,
+                      hintStyle: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w700,
+                          color: MyColors.grey),
+                      border: InputBorder.none,
+                      labelText: MyTexts.labelText,
+                      labelStyle: TextStyle(
+                          color: MyColors.blue,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700)),
+                )),
+
+            // MyTextField(
+            //     hintText: MyTexts.hintText,
+            //     color: MyColors.blue,
+            //     bgcolor: MyColors.white,
+            //     labelText: MyTexts.labelText),
             const SizedBox(
               height: 10,
             ),
             InkWell(
               onTap: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => FirstPage()));
+                login(context);
               },
               child: LoginButton(
                 text: MyTexts.loginText,
@@ -99,6 +169,25 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
+            Padding(
+                padding: const EdgeInsets.only(left: 160.0),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SignUpPage(),
+                        ));
+                  },
+                  child: Text(
+                    "Sign Up",
+                    style: TextStyle(
+                        color: MyColors.lightblue,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14),
+                  ),
+                )),
+            const SizedBox(height: 5),
             ButtomText(
               text: MyTexts.bottontext1,
               fontSize: 11,
