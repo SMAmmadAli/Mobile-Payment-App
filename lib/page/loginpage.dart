@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_payment_app/page/first_Page.dart';
 import 'package:mobile_payment_app/page/home_page.dart';
 import 'package:mobile_payment_app/page/signup_page.dart';
 import 'package:mobile_payment_app/utils/color_constant.dart';
@@ -8,11 +7,17 @@ import 'package:mobile_payment_app/utils/image_constant.dart';
 import 'package:mobile_payment_app/utils/texts_constant.dart';
 import 'package:mobile_payment_app/widgets/bottom_text.dart';
 import 'package:mobile_payment_app/widgets/login_button.dart';
-import 'package:mobile_payment_app/widgets/text_field.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   TextEditingController enterEmail = TextEditingController();
+
   TextEditingController enterPassword = TextEditingController();
 
   login(context) async {
@@ -34,6 +39,8 @@ class LoginPage extends StatelessWidget {
     }
   }
 
+  bool showPassword = true;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -43,7 +50,7 @@ class LoginPage extends StatelessWidget {
           children: [
             Container(
               width: MediaQuery.of(context).size.width * 1,
-              height: MediaQuery.of(context).size.height * 0.68,
+              height: MediaQuery.of(context).size.height * 0.55,
               decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.fill, image: AssetImage(MyImages.loginPg1))),
@@ -111,6 +118,7 @@ class LoginPage extends StatelessWidget {
                   color: MyColors.bgcolor,
                   borderRadius: BorderRadius.circular(30)),
               child: TextField(
+                style: TextStyle(color: MyColors.white),
                 controller: enterEmail,
                 decoration: InputDecoration(
                     contentPadding: EdgeInsets.fromLTRB(20, 10, 10, 10),
@@ -123,9 +131,12 @@ class LoginPage extends StatelessWidget {
                     labelText: MyTexts.labelText,
                     labelStyle: TextStyle(
                         color: MyColors.blue,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w700)),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400)),
               ),
+            ),
+            const SizedBox(
+              height: 10,
             ),
             Container(
                 width: MediaQuery.of(context).size.width * 0.8,
@@ -134,9 +145,22 @@ class LoginPage extends StatelessWidget {
                     color: MyColors.bgcolor,
                     borderRadius: BorderRadius.circular(30)),
                 child: TextField(
-                  obscureText: true,
+                  style: TextStyle(color: MyColors.white),
+                  obscureText: showPassword,
                   controller: enterPassword,
                   decoration: InputDecoration(
+                      suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              showPassword = !showPassword;
+                            });
+                          },
+                          icon: Icon(
+                            showPassword
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: MyColors.white,
+                          )),
                       contentPadding: EdgeInsets.fromLTRB(20, 10, 10, 10),
                       hintText: MyTexts.hintText,
                       hintStyle: TextStyle(
@@ -144,11 +168,11 @@ class LoginPage extends StatelessWidget {
                           fontWeight: FontWeight.w700,
                           color: MyColors.grey),
                       border: InputBorder.none,
-                      labelText: MyTexts.labelText,
+                      labelText: MyTexts.labelText2,
                       labelStyle: TextStyle(
                           color: MyColors.blue,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700)),
+                          fontSize: 14,
+                          fontWeight: FontWeight.w400)),
                 )),
 
             // MyTextField(
@@ -169,24 +193,33 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 10),
-            Padding(
-                padding: const EdgeInsets.only(left: 160.0),
-                child: InkWell(
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  MyTexts.dontAccount,
+                  style: TextStyle(
+                      color: MyColors.lightBlack,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14),
+                ),
+                InkWell(
                   onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => SignUpPage(),
-                        ));
+                            builder: ((context) => SignUpPage())));
                   },
                   child: Text(
-                    "Sign Up",
+                    MyTexts.signUp,
                     style: TextStyle(
-                        color: MyColors.lightblue,
+                        color: MyColors.lightBlack,
                         fontWeight: FontWeight.w500,
                         fontSize: 14),
                   ),
-                )),
+                ),
+              ],
+            ),
             const SizedBox(height: 5),
             ButtomText(
               text: MyTexts.bottontext1,

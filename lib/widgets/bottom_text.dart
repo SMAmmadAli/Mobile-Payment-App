@@ -15,13 +15,10 @@ class ButtomText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 20.0),
-          child: Text(
-            text,
-            style: TextStyle(
-                color: color, fontSize: fontSize, fontWeight: FontWeight.w500),
-          ),
+        Text(
+          text,
+          style: TextStyle(
+              color: color, fontSize: fontSize, fontWeight: FontWeight.w500),
         ),
       ],
     );
